@@ -23,11 +23,11 @@ def save_show_no(plotfunc):
 
         ax = plotfunc(*args)
 
-        if 'filename' in kwargs.keys():
+        if 'filename' in list(kwargs.keys()):
 
             plt.savefig(kwargs['filename'])
 
-        elif 'show' in kwargs.keys():
+        elif 'show' in list(kwargs.keys()):
 
             plt.show()
 
@@ -64,7 +64,7 @@ def scatter3d_with_graph(x,y,z,adj):
     vertices = [[x[i],y[i]] for i in indices]
     codes = [Path.MOVETO, Path.LINETO] * (len(indices) / 2)
 
-    indx = range(len(indices))
+    indx = list(range(len(indices)))
     for i in indx[::2]:
         l,k = indices[i],indices[i+1]
         # just plot the single additional line
